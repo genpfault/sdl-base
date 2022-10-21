@@ -1,0 +1,7 @@
+.cache/
+build/
+build32/
+build64/
+buildjs/
+android/.cxx
+android/.gradle
