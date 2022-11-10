@@ -42,7 +42,7 @@ The resulting binaries are in `build/<build-type>/`
 
 # Platform Notes
 
-## Windows
+### Windows
 
 You can build with the Visual Studio command-line tools by running [`vcvarsall.bat`](https://learn.microsoft.com/en-us/cpp/build/building-on-the-command-line#developer_command_file_locations) (locations vary) in your shell before running `cmake`:
 
@@ -65,7 +65,7 @@ cmake -B build -G "Visual Studio 16 2019" -A x64 .
 ```
 
 
-## Linux
+### Linux
 
 Install the build dependencies for your distro's SDL package.
 
@@ -84,7 +84,7 @@ For Debian & derivatives:
     ```
 
 
-## macOS
+### macOS
 
 1. Install [Homebrew](https://brew.sh/), which automatically installs the XCode command line tools.
 
@@ -98,7 +98,7 @@ For Debian & derivatives:
 3. Configure/build using the generic instructions above.
 
 
-## Android
+### Android
 
 1. Bootstrap an Android SDK command-line tools install with [these instructions](https://developer.android.com/studio/command-line/sdkmanager) and add an `ANDROID_HOME` variable pointing at the root of it to your envrionment.
 
@@ -125,7 +125,7 @@ For Debian & derivatives:
     ```
 
 
-## Emscripten
+### Emscripten
 
 1. Activate the Emscripten environment:
 
