@@ -6,11 +6,6 @@ project( sdl-base )
 set( CMAKE_CXX_STANDARD 11 CACHE STRING "" FORCE )
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE BOOL "" FORCE )
 
-if( ${CMAKE_SYSTEM_NAME} MATCHES "Emscripten" )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --emrun -sASYNCIFY=1")
-    set(CMAKE_EXECUTABLE_SUFFIX .html)
-endif()
-
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Android" )
     add_library( main SHARED )
 else()
@@ -25,6 +20,11 @@ endif()
 
 add_subdirectory( "src" )
 add_subdirectory( "external" )
+
+if( ${CMAKE_SYSTEM_NAME} MATCHES "Emscripten" )
+    target_link_options( main PRIVATE "--emrun -sASYNCIFY=1 --preload-file assets" )
+    set(CMAKE_EXECUTABLE_SUFFIX .html)
+endif()
 
 if( ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set( CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" )
